@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(MaterialApp(
     home: Scaffold(
-      appBar: AppBar(
-        title: Text('Strawberry Pavlova'),
-      ),
+      //appBar: AppBar(
+        //title: Text('Strawberry Pavlova'),
+      //),
       body: Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.red, width: 2),
@@ -40,7 +41,7 @@ void main() {
                         color: Colors.black,
                       ),
                     ),
-                    margin: EdgeInsets.fromLTRB(8, 4, 8, 4),
+                    margin: EdgeInsets.fromLTRB(8.0, 4.0, 8.0, 4.0),
                     child: Center(
                       child: Text(
                         "pavlova is a meringue-based"
@@ -144,7 +145,15 @@ void main() {
             Expanded(
               flex: 2,
               child:
-              Container(child: Image(image: AssetImage('assets/food.png'))),
+              Container(
+                child: OverflowBox(
+                  minHeight: 0.0,
+                  minWidth: 0.0,
+                  maxWidth: double.infinity,
+                  child: Image
+                    (image: AssetImage('assets/food.png'), fit: BoxFit.cover,),
+                ),
+              ),
             ),
           ],
         ),
